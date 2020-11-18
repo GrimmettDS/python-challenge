@@ -4,10 +4,12 @@ import csv
 # Path to collect data from the Resources folder
 budget_data = os.path.join("PyBank","Resources","budget_data.csv")
 
+
+
 # Define the function and have it accept the 'wrestlerData' as its sole parameter
-#def print_percentages(wrestler_data):
-    #name = str(wrestler_data[0])
-   # wins = int(wrestler_data[1])
+def print_percentages(test_data):
+    date = str(test_data[0])
+    profit = int(test_data[1])
     #losses = int(wrestler_data[2])
     #draws = int(wrestler_data[3])
     #total = (wins + losses + draws)
@@ -32,11 +34,10 @@ with open(budget_data, 'r') as csvfile:
     maxnum = 0
     # Loop through the data
     for row in csvreader:
-        if row[1] > maxnum:
-            maxnum == row[1]
+        x = 1, y = 0
 
-
-            print(maxnum)
+        print(x)
+        
 
         # If the wrestler's name in a row is equal to that which the user input, run the 'print_percentages()' function
         #count = count + 1
