@@ -32,4 +32,16 @@ with open(budget_data, 'r') as csvfile:
         ChangeDiff = (ProfitTot[i] - ProfitTot[j])
         Change_List.append(int(ChangeDiff))
 
-    print(f"{ChangeDiff}")
+    Change_Month = round(sum(Change_List)/(month_count -1),2)
+
+    MaxNum = max(Change_List)
+    MinNum = min(Change_List)
+
+    MinChange = Change_List.index(MinNum)
+    MaxChange = Change_List.index(MaxNum)
+
+print(f"{Change_Month}")
+print(f"{MaxNum}")
+print(f"{MinNum}")
+print(f"{MinChange}")
+print(f"{MaxChange}")
