@@ -20,7 +20,7 @@ with open(election_data, 'r') as csvfile:
 
     # Candidate Listing and Vote Count loop
     for row in csvreader:
-        if row[2] in Candidates:
+        if row[2] in csvreader in Candidates:
             VoteTotal += 1
         else:
             Candidates.append(row[2])
@@ -28,6 +28,9 @@ with open(election_data, 'r') as csvfile:
 
     CandidateLength = len(Candidates)
     VoteCount = [0] * CandidateLength
+
+    with open(election_data, 'r') as csvfile:
+        csvreader = csv.reader(csvfile, delimiter=',')
 
     for i in range(CandidateLength):
         if row[2] == Candidates[i]:
@@ -42,9 +45,11 @@ with open(election_data, 'r') as csvfile:
 
     Winner = Candidates[MaxVote]    
 
-print(f"Winner: {Winner}")
+# Testing Output
 
+print(f"Winner: {Winner} {MaxNum}")
 
+print(f"{Candidates}")
 print("Election Results")
 print("----------------------------")
 print(f"{VoteTotal}")
