@@ -22,11 +22,13 @@ with open(election_data, newline='') as csvfile:
 
     # Candidate Listing and Vote Count loop
     for row in csvreader:
-        if row in Candidates:
+        if row[2] in csvreader not in Candidates:
+            Candidates.append(row[2])
             VoteTotal += 1
         else:
-            Candidates.append(row)
             VoteTotal += 1
+
+    print(Candidates)
 
     CandidateLength = len(Candidates)
     VoteCount = [0] * CandidateLength
