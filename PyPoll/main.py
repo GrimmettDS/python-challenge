@@ -5,52 +5,50 @@ import csv
 election_data = os.path.join("Resources","election_data.csv")
 
 VoteTotal = 0
-
+Votes = {}
 VotePercent = []
-#EachCanVote
+# EachCanVote
+# MainList = {}
+MainList = []
 
 # Read the CSV and split at the commas
-with open(election_data, newline='') as csvfile:
+with open(election_data, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     csv_header = next(csvreader)
 
-    # print(csvreader)
-
-    i = 0
-    J = 0
-    Candidates = []
-
-    # Candidate Listing and Vote Count loop
     for row in csvreader:
-        if row[2] in csvreader not in Candidates:
-            Candidates.append(row[2])
-            VoteTotal += 1
-        else:
-            VoteTotal += 1
+        MainList.append(row[2])
 
-    print(Candidates)
+VoteTotal = len(MainList)
 
-    CandidateLength = len(Candidates)
-    VoteCount = [0] * CandidateLength
+# Setting Vote Variables
+i = 0  # Current Vote Count
+j = 0  # Previous Vote Count
+Candidates = []
+PerCandidate = []
+TotCandidate = []
 
-    for i in range(CandidateLength):
-        if row[2] == Candidates[i]:
-            VoteCount[i] += 1
+People = MainList[0]
 
-    for j in range(CandidateLength):
-        VotePer = round(VoteCount[j] / VoteTotal * 100, 2)
-        VotePercent.append(VotePer)
+# Candidate Listing and Vote Count loop
+for Name in MainList:
+    if Name not in Candidates: 
+        Candidates.append(Name)
 
-    MaxNum = max(VoteCount)
-    MaxVote = VoteCount.index(MaxNum)
+# Candidate Vote Loop
+for People in Candidates:
+    for VoteCount in MainList:
+        if People == VoteCount:
+            i += 1
 
-    Winner = Candidates[MaxVote]    
+    VotePercent = i / len(MainList)        
+    PerCandidate.append(VotePercent)
+    TotCandidate.append(i)
 
-# Testing Output
+    if j < i:
+        Winner = People
 
-print(f"Winner: {Winner} {MaxNum}")
-
-print(f"{Candidates}")
-print("Election Results")
-print("----------------------------")
-print(f"{VoteTotal}")
+# Print Testing
+    print(f"{People}: {VotePercent:.2%} ({i})")
+print(Candidates)
+print(VotePercent)

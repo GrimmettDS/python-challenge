@@ -28,7 +28,7 @@ VoteTotal = len(MainList)
 
 # Setting Vote Variables
 i = 0  # Current Vote Count
-J = 0  # Previous Vote Count
+j = 0  # Previous Vote Count
 Candidates = []
 PerCandidate = []
 TotCandidate = []
@@ -50,7 +50,10 @@ for People in Candidates:
     PerCandidate.append(VotePercent)
     TotCandidate.append(i)
 
-            # VoteTotal = VoteTotal + 1
+    if j < i:
+        Winner = People
 
+# Print Testing
+    print(f"{People}: {VotePercent:.2%} ({i})")
 print(Candidates)
 print(VotePercent)
