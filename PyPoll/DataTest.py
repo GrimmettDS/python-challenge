@@ -26,20 +26,31 @@ VoteTotal = len(MainList)
 
     # print(csvreader)
 
-i = 0
-J = 0
+# Setting Vote Variables
+i = 0  # Current Vote Count
+J = 0  # Previous Vote Count
 Candidates = []
+PerCandidate = []
+TotCandidate = []
 
-    # Candidate Listing and Vote Count loop
-    # CandidateUno = row[2]
+People = MainList[0]
 
+# Candidate Listing and Vote Count loop
 for Name in MainList:
     if Name not in Candidates: 
         Candidates.append(Name)
-        
 
+# Candidate Vote Loop
+for People in Candidates:
+    for VoteCount in MainList:
+        if People == VoteCount:
+            i += 1
 
+    VotePercent = i / len(MainList)        
+    PerCandidate.append(VotePercent)
+    TotCandidate.append(i)
 
-    VoteTotal = VoteTotal + 1
+            # VoteTotal = VoteTotal + 1
 
 print(Candidates)
+print(VotePercent)
