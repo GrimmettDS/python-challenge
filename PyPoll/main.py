@@ -10,9 +10,11 @@ VotePercent = []
 #EachCanVote
 
 # Read the CSV and split at the commas
-with open(election_data, 'r') as csvfile:
+with open(election_data, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     csv_header = next(csvreader)
+
+    # print(csvreader)
 
     i = 0
     J = 0
@@ -20,17 +22,14 @@ with open(election_data, 'r') as csvfile:
 
     # Candidate Listing and Vote Count loop
     for row in csvreader:
-        if row[2] in csvreader in Candidates:
+        if row in Candidates:
             VoteTotal += 1
         else:
-            Candidates.append(row[2])
+            Candidates.append(row)
             VoteTotal += 1
 
     CandidateLength = len(Candidates)
     VoteCount = [0] * CandidateLength
-
-    with open(election_data, 'r') as csvfile:
-        csvreader = csv.reader(csvfile, delimiter=',')
 
     for i in range(CandidateLength):
         if row[2] == Candidates[i]:
