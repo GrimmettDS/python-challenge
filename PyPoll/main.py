@@ -48,7 +48,16 @@ for People in Candidates:
     if j < i:
         Winner = People
 
-# Print Testing
-    print(f"{People}: {VotePercent:.2%} ({i})")
+    print("Election Results")
+    print("------------------------------")
+    print(f"Total Votes: {VoteTotal}")
+    print("------------------------------")
+    print(f"{People}: {VotePercent:.3%} ({i})")
+
+    i = 0
+    j = 0
+
+
+# Print Testing    
 print(Candidates)
 print(VotePercent)
