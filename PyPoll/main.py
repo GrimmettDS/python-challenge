@@ -21,6 +21,12 @@ with open(election_data, 'r') as csvfile:
 
 VoteTotal = len(MainList)
 
+# Vote Total Output Results
+print("Election Results")
+print("------------------------------")
+print(f"Total Votes: {VoteTotal}")
+print("------------------------------")  
+
 # Setting Vote Variables
 i = 0  # Current Vote Count
 j = 0  # Previous Vote Count
@@ -30,12 +36,12 @@ TotCandidate = []
 
 People = MainList[0]
 
-# Candidate Listing and Vote Count loop
+# Candidate Listing Loop
 for Name in MainList:
     if Name not in Candidates: 
         Candidates.append(Name)
 
-# Candidate Vote Loop
+# Candidate Vote Amount Loop
 for People in Candidates:
     for VoteCount in MainList:
         if People == VoteCount:
@@ -48,14 +54,13 @@ for People in Candidates:
     if j < i:
         Winner = People
 
-    print("Election Results")
-    print("------------------------------")
-    print(f"Total Votes: {VoteTotal}")
-    print("------------------------------")
-    print(f"{People}: {VotePercent:.3%} ({i})")
-
     i = 0
     j = 0
+
+    # Candidates Vote Total Result
+    print(f"{People}: {VotePercent:.3%} ({i})")
+
+
 
 
 # Print Testing    
