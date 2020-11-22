@@ -54,12 +54,18 @@ for People in Candidates:
     if j < i:
         Winner = People
 
-    i = 0
-    j = 0
-
     # Candidates Vote Total Result
     print(f"{People}: {VotePercent:.3%} ({i})")
 
+    j = i
+    i = 0
+
+
+
+
+print("------------------------------")
+print(f"Winner: {Winner}")
+print("------------------------------")
 
 
 
