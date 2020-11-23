@@ -15,9 +15,11 @@ with open(election_data, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     csv_header = next(csvreader)
 
+    # Placing all people voted on in seperate list.
     for row in csvreader:
         MainList.append(row[2])
 
+# Getting Vote Total
 VoteTotal = len(MainList)
 
 # Vote Total Output Results
@@ -65,7 +67,7 @@ print(f"Winner: {Winner}")
 print("------------------------------")
 
 #  Set variable for output file
-output_file = os.path.join("election_results.txt")
+output_file = os.path.join("analysis","election_results.txt")
 
 #  Output files
 with open(output_file, "w", newline="") as text:
